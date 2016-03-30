@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 
 namespace Generics_and_Extension_Methods
 {
-    class RaceCar
+    class RaceCar: IVehicle
     {
-        public string oil { get; set; };
-        public string tire { get; set};
-    }
+        public class RaceCar : TheVehicle
+        {
+            public RaceCar()
+            {
+                AreTiresChanged = true;
+                IsFilledUp = true;
+                IsNewOil = true;
+                TypeOfGas = GasType.HighPerformance;
+            }
+
+            public override string ToString()
+            {
+                return "Race Car";
+            }
+        }
 }

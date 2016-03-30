@@ -6,9 +6,19 @@ using System.Threading.Tasks;
 
 namespace Generics_and_Extension_Methods
 {
-    class Truck
+    public class Truck : TheVehicle
     {
-        public string oil { get; set; };
-        public string tire { get; set};
+        public Truck()
+        {
+            AreTiresChanged = true;
+            IsFilledUp = true;
+            IsNewOil = true;
+            TypeOfGas = GasType.Diesel;
+        }
+
+        public override string ToString()
+        {
+            return "Truck";
+        }
     }
 }

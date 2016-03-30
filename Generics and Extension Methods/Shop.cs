@@ -6,10 +6,34 @@ using System.Threading.Tasks;
 
 namespace Generics_and_Extension_Methods
 {
-    class Shop
+    public class Shop<T> where T : TheVehicle
     {
-        public string oil { get; set; };
-        public string tire { get; set};
+        public void isFilledUp(T TheVehicle)
+        {
+            TheVehicle.IsFilledUp = false;
+            Console.WriteLine($"The {TheVehicle} had its {TheVehicle.TypeOfGas} filled up");
+        }
+
+        public void IsNewOil(T TheVehicle)
+        {
+            TheVehicle.IsNewOil = false;
+            Console.WriteLine($"The {TheVehicle} had its oil changed");
+        }
     }
 
+    public static class ShopExtension
+    {
+        public static void AreTiresChanged<T>(this Shop<T> shop, T TheVehicle) where T : TheVehicle
+
+        {
+            TheVehicle.AreTiresChanged = false;
+            Console.WriteLine($"The {TheVehicle} had its Tires Serviced");
+        }
+    }
 }
+
+
+
+
+
+

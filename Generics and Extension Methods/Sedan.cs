@@ -6,9 +6,22 @@ using System.Threading.Tasks;
 
 namespace Generics_and_Extension_Methods
 {
-    class Sedan
+    class Sedan: IVehicle
     {
-        public string oil { get; set; };
-        public string tire { get; set};
-    }
+        public class Sedan : TheVehicle
+        {
+            public Sedan()
+            {
+                AreTiresChanged = true;
+                IsNewOil = true;
+                IsFilledUp = true;
+                TypeOfGas = GasType.Regular;
+            }
+
+            public override string ToString()
+            {
+                return "Sedan";
+            }
+
+        }
 }
